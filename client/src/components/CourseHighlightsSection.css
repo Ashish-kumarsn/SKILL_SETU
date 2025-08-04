@@ -1,0 +1,191 @@
+.course-highlight-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5rem; /* 🟢 was 3rem — now increased */
+  margin: 3rem auto;
+  padding: 2rem;
+  flex-wrap: wrap;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.about-section {
+  flex: 1;
+  min-width: 320px;
+  padding-left: 3rem;
+}
+
+.testimonial-card {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 1rem 0;
+}
+
+.testimonial-card button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.testimonial-card button:hover {
+  background-color: #333;
+}
+
+.about-section h2,
+.learn-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.about-section h2::after,
+.learn-section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #00ddeb;
+  margin-top: 5px;
+}
+
+.course-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ddd;
+  max-height: 120px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.course-description.expanded {
+  max-height: none;
+}
+
+.see-more {
+  display: inline-block;
+  color: #00ddeb;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.e-card {
+  background: transparent;
+  position: relative;
+  width: 220px;
+  height: 90px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.e-card:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.wave {
+  position: absolute;
+  width: 450px;
+  height: 350px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%;
+  background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+  border-radius: 40%;
+  animation: wave 30s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 40s;
+  top: 210px;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 45s;
+  top: 210px;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.infotop {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .course-highlight-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-section,
+  .learn-section,
+  .testimonial-card {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .card-list {
+    align-items: center;
+  }
+}

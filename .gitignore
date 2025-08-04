@@ -1,0 +1,10 @@
+client/node_modules/
+server/node_modules/
+client/build/
+server/dist/
+*.log
+.env
+client/.env
+server/.env
+.vscode/
+server/uploads/

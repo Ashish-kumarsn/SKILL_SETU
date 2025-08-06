@@ -28,10 +28,23 @@ app.use(express.json()); // Must be AFTER webhook
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: ["http://localhost:5173", "http://localhost:5174","https://skill-setu-backend.onrender.com"],
     credentials: true,
   })
 );
+
+// ✅ 2.5. Health check routes
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    success: true, 
+    message: 'Skill Setu Backend is running!',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
 
 // ✅ 3. Other API routes
 app.use("/api/v1/media", mediaRoute);

@@ -11,14 +11,16 @@ export const generateToken = (res, user, message) => {
   const sanitizedUser = {
     id: user._id,
     name: user.name,
-    email: user.email
+    email: user.email,
+    role: user.role 
   };
 
   return res
     .status(200)
     .cookie("token", token, {
       httpOnly: true,
-      sameSite: 'strict',
+      secure: false,        // ✅ localhost ke liye false
+      sameSite: 'lax',     // ✅ cross-origin ke liye 'lax' (not 'strict')
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     })
     .json({

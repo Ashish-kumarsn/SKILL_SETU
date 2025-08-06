@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const GEMINI_API = "http://localhost:8080/api/v1/chatbot/";
+const GEMINI_API = `${import.meta.env.VITE_BASE_API_URL}/chatbot/`;
 
 export const geminiApi = createApi({
   reducerPath: "geminiApi",

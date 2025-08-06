@@ -2,7 +2,7 @@
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const NOTE_API_BASE = "http://localhost:8080/api/notes";
+const NOTE_API_BASE = `${import.meta.env.VITE_BASE_API_URL}/notes`;
 
 export const noteApi = createApi({
   reducerPath: "noteApi",

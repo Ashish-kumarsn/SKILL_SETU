@@ -115,7 +115,8 @@ const CourseProgress = () => {
       // Optional: Add loading state
       // setIsGenerating(true);
 
-      const response = await fetch(`/api/certificate/generate/${courseId}`, {
+      // ✅ Replace with environment variable
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/certificate/generate/${courseId}`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -192,7 +193,8 @@ const CourseProgress = () => {
                           controls
                           className="w-full h-full"
                           onEnded={() => handleLectureProgress(selectedLecture._id)}
-                          poster={selectedLecture.thumbnail || "/api/placeholder/800/450"}
+                          // ✅ Replace with environment variable
+                          poster={selectedLecture.thumbnail || `${import.meta.env.VITE_BASE_API_URL}/placeholder/800/450`}
                         />
 
                         {/* Custom overlay controls */}
@@ -334,13 +336,13 @@ const CourseProgress = () => {
                       )}
 
                       {activeVideoTab === 'notes' && selectedLecture && (
-  <div className="py-6">
-    <LectureNotes
-      courseId={courseId}
-      lectureId={selectedLecture._id}
-    />
-  </div>
-)}
+                        <div className="py-6">
+                          <LectureNotes
+                            courseId={courseId}
+                            lectureId={selectedLecture._id}
+                          />
+                        </div>
+                      )}
 
                     </div>
                   </div>
@@ -918,7 +920,7 @@ const CourseProgress = () => {
                   Your certificate will be generated as a PDF file with official verification details and can be shared on professional networks.
                 </p>
               </div>
-                      <FeedbackButton courseId={courseId} />
+              <FeedbackButton courseId={courseId} />
 
             </div>
           </div>

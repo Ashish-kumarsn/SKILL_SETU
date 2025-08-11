@@ -4,24 +4,24 @@ export const generateToken = (res, user, message) => {
   const token = jwt.sign(
     { userId: user._id },
     process.env.SECRET_KEY,
-    { expiresIn: '1d' }
+    { expiresIn: "1d" }
   );
 
-  // Sanitize user data to avoid sending password/hash/etc.
+  // ✅ Remove sensitive data before sending
   const sanitizedUser = {
     id: user._id,
     name: user.name,
     email: user.email,
-    role: user.role 
+    role: user.role
   };
 
   return res
     .status(200)
     .cookie("token", token, {
       httpOnly: true,
-      secure: false,        // ✅ localhost ke liye false
-      sameSite: 'lax',     // ✅ cross-origin ke liye 'lax' (not 'strict')
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      secure: process.env.NODE_ENV === "production", // ✅ true in prod, false locally
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅ cross-domain cookies
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
     })
     .json({
       success: true,

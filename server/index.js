@@ -28,10 +28,19 @@ app.use(express.json()); // Must be AFTER webhook
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174","https://skill-setu-backend.onrender.com"],
+    origin: [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://skill-setu.vercel.app",
+  "https://skill-setu-ashish-kumars-projects-e6f8a22c.vercel.app"
+],
+
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
 
 // ✅ 2.5. Health check routes
 app.get('/', (req, res) => {

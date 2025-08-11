@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import CourseTab from './CourseTab';
-import SeeFeedback from '@/components/Feedback/SeeFeedback';
+import SeeFeedback from '@/components/Feedback/seeFeedback';
 import FeedbackIcon from '@/assets/feedback-icon.png'; // ✅ Import PNG properly
 
 const EditCourse = () => {

@@ -32,7 +32,7 @@ app.use(
   "http://localhost:5173",
   "http://localhost:5174",
   "https://skill-setu.vercel.app",
-  "https://skill-setu-ashish-kumars-projects-e6f8a22c.vercel.app"
+  "https://skill-setu-git-main-ashish-kumars-projects-e6f8a22c.vercel.app"
 ],
 
     credentials: true,

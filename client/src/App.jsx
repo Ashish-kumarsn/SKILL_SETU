@@ -5,7 +5,8 @@ import Lottie from "lottie-react";
 import botAnimation from "./assets/lottie/animation.json"; // adjust path if needed
 import { motion } from 'framer-motion';
 
-import Login from './pages/login';
+import Login from './pages/Login';
+
 import HeroSection from './pages/student/HeroSection';
 import Courses from './pages/student/Courses';
 import MyLearning from './pages/student/MyLearning';

@@ -21,6 +21,7 @@ import EditLecture from './pages/admin/lecture/EditLecture';
 import CourseDetail from './pages/student/CourseDetail';
 import CourseProgress from './pages/student/CourseProgress';
 import SearchPage from './pages/student/SearchPage';
+import RecruiterModal from './components/RecruiterModal';
 
 import CourseCategories from './components/CourseCategories';
 import { AdminRoute, AuthenticatedUser, ProtectedRoute } from './components/ProtectedRoutes';
@@ -44,8 +45,22 @@ import AdminSidebar from './components/Sidebar';
 
 // ✅ NEW: Wrapper component that includes GlobalChatbot
 function AppWithChatbot() {
+  const [showRecruiterModal, setShowRecruiterModal] = useState(false);
+
+  useEffect(() => {
+    const alreadySeen = localStorage.getItem("recruiterPopupSeen");
+    if (!alreadySeen) {
+      // Small delay so the page loads first before popup appears
+      const timer = setTimeout(() => setShowRecruiterModal(true), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
+      {showRecruiterModal && (
+        <RecruiterModal onClose={() => setShowRecruiterModal(false)} />
+      )}
       <Outlet />
       <GlobalChatbot />
     </>

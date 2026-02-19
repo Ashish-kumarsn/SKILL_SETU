@@ -105,7 +105,7 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <div className="flex items-center gap-3">
-              <Button variant="outline" onClick={() => navigate("/login")}>Login</Button>
+              <Button variant="outline " className="bg-black , text-white hover:bg-white hover:text-black border-gray-500" onClick={() => navigate("/login")}>Login</Button>
               <Button onClick={() => navigate("/register")}>Signup</Button>
             </div>
           )}
